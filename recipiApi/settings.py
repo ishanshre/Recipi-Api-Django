@@ -48,6 +48,7 @@ INSTALLED_APPS = [
 
     #local apps,
     'accounts.apps.AccountsConfig',
+    'core.apps.CoreConfig',
 ]
 
 MIDDLEWARE = [
@@ -103,7 +104,7 @@ DATABASES = {
         'USER': str(os.getenv("DB_USER")),
         'PASSWORD': str(os.getenv("DB_PASSWORD")),
         'HOST': str(os.getenv("DB_HOST")),
-        'PORT': int(os.getenv("DB_PORT")),
+        'PORT': 5432,
     }
 }
 
