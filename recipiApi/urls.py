@@ -25,6 +25,7 @@ from drf_yasg import openapi
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('__debug__/', include('debug_toolbar.urls')),
+    path("api/users/", include("accounts.urls"))
 ]
 
 schema_view = get_schema_view(
