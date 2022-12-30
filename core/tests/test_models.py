@@ -1,10 +1,12 @@
 """
 Tests for models
 """
-
+from decimal import Decimal
 
 from django.test import TestCase
 from django.contrib.auth import get_user_model
+
+from core import models
 
 User = get_user_model()
 
@@ -44,3 +46,19 @@ class ModelTests(TestCase):
         with self.assertRaises(ValueError):
             User.objects.create_user(username="",email="admin212@asd.com",password="hello@123")
             
+    
+    def test_recipi_create(self):
+        """Test create new recipi"""
+        user = User.objects.create_user(
+            email="test@email.com",
+            username="test",
+            password="hello@123"
+        )
+        recipi = models.Recipi.objects.create(
+            user=user,
+            title="create new recipi",
+            description="This is description",
+            time_minutes=13,
+            price=1000
+        )
+        self.assertEqual(str(recipi), recipi.title)
