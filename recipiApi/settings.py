@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     #local apps,
     'accounts.apps.AccountsConfig',
     'core.apps.CoreConfig',
+    'recipi.apps.RecipiConfig',
 ]
 
 MIDDLEWARE = [
